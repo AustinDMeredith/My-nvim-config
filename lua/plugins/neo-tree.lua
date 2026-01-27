@@ -7,6 +7,25 @@ return {
       "nvim-tree/nvim-web-devicons", -- optional, but recommended
     },
     config = function ()
-      vim.keymap.set('n', '<C-n>', ':Neotree filesystem reveal left<CR>', {})
+      require("neo-tree").setup({
+        filesystem = {
+            git_status = {
+                symbols = {
+                    -- Change type
+                    added     = "✚",
+                    modified  = "",
+                    deleted   = "✖",
+                    renamed   = "󰁕",
+
+                    -- Status type
+                    untracked = "",
+                    ignored   = "",
+                    unstaged  = "󰄱",
+                    staged    = "",
+                    conflict  = "",
+                    },
+                },
+          },
+      })
     end
 }

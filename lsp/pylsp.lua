@@ -25,7 +25,7 @@
 --- ```
 ---
 --- Note: This is a community fork of `pyls`.
-
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 ---@type vim.lsp.Config
 return {
   cmd = { 'pylsp' },
@@ -38,4 +38,5 @@ return {
     'Pipfile',
     '.git',
   },
+  capabilities = capabilities,
 }

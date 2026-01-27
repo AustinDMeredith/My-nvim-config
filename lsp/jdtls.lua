@@ -70,6 +70,8 @@ local root_markers2 = {
   'settings.gradle.kts', -- Gradle
 }
 
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
 ---@type vim.lsp.Config
 return {
   ---@param dispatchers? vim.lsp.rpc.Dispatchers
@@ -99,4 +101,5 @@ return {
   root_markers = vim.fn.has('nvim-0.11.3') == 1 and { root_markers1, root_markers2 }
     or vim.list_extend(root_markers1, root_markers2),
   init_options = {},
+  capabilities = capabilities,
 }

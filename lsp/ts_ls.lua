@@ -41,6 +41,8 @@
 --- It is recommended to use the same version of TypeScript in all packages, and therefore have it available in your workspace root. The location of the TypeScript binary will be determined automatically, but only once.
 ---
 
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
 ---@type vim.lsp.Config
 return {
   init_options = { hostInfo = 'neovim' },
@@ -53,6 +55,7 @@ return {
     'typescriptreact',
     'typescript.tsx',
   },
+  capabilities = capabilities,
   root_dir = function(bufnr, on_dir)
     -- The project root is where the LSP can be started from
     -- As stated in the documentation above, this LSP supports monorepos and simple projects.

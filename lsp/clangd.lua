@@ -32,6 +32,19 @@ local function switch_source_header(bufnr, client)
   end, bufnr)
 end
 
+local capabilities = vim.tbl_deep_extend(
+  "force",
+  require("cmp_nvim_lsp").default_capabilities(),
+  {
+    textDocument = {
+      completion = {
+        editsNearCursor = true,
+      },
+    },
+    offsetEncoding = { 'utf-8', 'utf-16' },
+  }
+)
+
 local function symbol_info(bufnr, client)
   local method_name = 'textDocument/symbolInfo'
   ---@diagnostic disable-next-line:param-type-mismatch
@@ -74,14 +87,7 @@ return {
     'configure.ac', -- AutoTools
     '.git',
   },
-  capabilities = {
-    textDocument = {
-      completion = {
-        editsNearCursor = true,
-      },
-    },
-    offsetEncoding = { 'utf-8', 'utf-16' },
-  },
+  capabilities = capabilities,
   ---@param init_result ClangdInitializeResult
   on_init = function(client, init_result)
     if init_result.offsetEncoding then
