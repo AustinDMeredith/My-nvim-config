@@ -11,5 +11,20 @@ return {
         vim.g.gruvbox_material_statusline_style = "material"
         vim.g.gruvbox_material_cursor = "auto"
         vim.cmd.colorscheme("gruvbox-material")
+
+
+        local function set_float_hl()
+          -- Make hover/doc popups match your theme
+          vim.api.nvim_set_hl(0, "FloatBorder", { link = "WinSeparator" })
+          vim.api.nvim_set_hl(0, "FloatTitle", { link = "Title" })
+        end
+
+        -- Apply immediately
+        set_float_hl()
+
+        -- Reapply if colorscheme changes
+        vim.api.nvim_create_autocmd("ColorScheme", {
+          callback = set_float_hl,
+        })
     end,
 }

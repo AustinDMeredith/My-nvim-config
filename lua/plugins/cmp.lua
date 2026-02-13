@@ -26,7 +26,16 @@ return {
             luasnip.lsp_expand(args.body)
           end,
         },
-
+        window = {
+            completion = cmp.config.window.bordered({
+                border = "rounded",
+                winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
+            }),
+            documentation = cmp.config.window.bordered({
+                border = "rounded",
+                winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,Search:None",
+            }),
+        },
         mapping = cmp.mapping.preset.insert({
           ["<C-Space>"] = cmp.mapping.complete(),
           ["<CR>"] = cmp.mapping.confirm({ select = true }),

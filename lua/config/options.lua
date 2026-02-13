@@ -8,3 +8,4 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.updatetime = 250
 vim.g.mapleader = " "
+vim.opt.termguicolors = true
