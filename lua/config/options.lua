@@ -9,3 +9,6 @@ vim.opt.expandtab = true
 vim.opt.updatetime = 250
 vim.g.mapleader = " "
 vim.opt.termguicolors = true
+vim.opt.pumblend = 0          -- no transparency on menu
+vim.opt.winblend = 0          -- no transparency on floats
+vim.opt.pumheight = 10        -- max items shown at once (optional)
