@@ -30,6 +30,7 @@ return {
 
       -- Map in BOTH normal and terminal mode
       vim.keymap.set({ "n", "t" }, "<C-g>", toggle_lazygit, { desc = "Toggle LazyGit", silent = true })
+      vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { desc = "Exit terminal mode" })
     end,
   },
 }

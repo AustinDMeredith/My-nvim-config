@@ -1,6 +1,6 @@
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.opt.mouse = "a"
+vim.opt.mouse = ""
 vim.opt.termguicolors = true
 vim.opt.clipboard = "unnamedplus"  -- use system clipboard
 vim.opt.tabstop = 4
@@ -12,3 +12,5 @@ vim.opt.termguicolors = true
 vim.opt.pumblend = 0          -- no transparency on menu
 vim.opt.winblend = 0          -- no transparency on floats
 vim.opt.pumheight = 10        -- max items shown at once (optional)
+vim.opt.spell = false
+vim.opt.spelllang = "en_us"

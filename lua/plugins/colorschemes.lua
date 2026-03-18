@@ -40,7 +40,23 @@ return {
           { name = "Edge", colorscheme = "edge" },
           { name = "Tokyo Night", colorscheme = "tokyonight" },
           { name = "Tokyo Night Moon", colorscheme = "tokyonight-moon" },
-          { name = "Catppuccin Mocha", colorscheme = "catppuccin-mocha" },
+          {
+            name = "Catppuccin Mocha Italic",
+            colorscheme = "catppuccin-mocha",
+            before = [[
+              require("lazy").load({plugins = {"catppuccin"}})
+              require("catppuccin").setup({
+                flavour = "mocha",
+                styles = {
+                  comments = { "italic" },
+                  conditionals = { "italic" },
+                  keywords = { "italic" },
+                  functions = { "italic" },
+                  types = { "italic" },
+                },
+              })
+            ]],
+          },
           { name = "Catppuccin Macchiato", colorscheme = "catppuccin-macchiato" },
           {
             name = "Material Palenight",
