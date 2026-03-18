@@ -1,6 +1,32 @@
+-- Handle jdt:// URIs from jdtls so gd opens library source
+vim.lsp.config("jdtls", {
+  handlers = {
+    ["workspace/executeCommand"] = function() end,
+  },
+})
+
+-- Register jdt URI handler
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    if client and client.name == "jdtls" then
+      vim.lsp.commands["java.apply.workspaceEdit"] = function(command)
+        require("jdtls").apply_workspace_edit(command.arguments[1])
+      end
+    end
+  end,
+})
+
+vim.api.nvim_create_autocmd("BufReadCmd", {
+  pattern = "jdt://*",
+  callback = function(args)
+    require("jdtls").open_classfile(args.match)
+  end,
+})
+
 vim.lsp.enable({
   "clangd",
-  "jdtls",
+  --"jdtls",
   "lua_ls",
   "pyright",
   "ts_ls"

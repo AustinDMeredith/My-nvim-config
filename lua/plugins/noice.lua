@@ -29,11 +29,27 @@ return {
             },
         },
         views = {
-            hover = {
-                border = {
-                    style = "rounded",
-                },
+          hover = {
+            border = {
+              style = "rounded",
             },
+          },
+          popupmenu = {
+            enabled = true,
+            backend = "nui",
+            relative = "editor",
+            position = "auto",
+            border = {
+              style = "rounded",
+              padding = { 0, 1 },
+            },
+            win_options = {
+              winhighlight = {
+                Normal = "NormalFloat",
+                FloatBorder = "FloatBorder",
+              },
+            },
+          },
         },
         -- you can enable a preset for easier configuration
         presets = {

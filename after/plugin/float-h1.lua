@@ -3,6 +3,15 @@ local function set_float_hl()
   vim.api.nvim_set_hl(0, "NormalFloat", { link = "Normal" })  -- slightly darker than background
   vim.api.nvim_set_hl(0, "FloatBorder", { link = "WinSeparator" })
   vim.api.nvim_set_hl(0, "FloatTitle", { link = "Title" })
+  vim.api.nvim_set_hl(0, "Pmenu", { link = "NormalFloat" })
+  vim.api.nvim_set_hl(0, "PmenuSel", { link = "PmenuSel" })  -- keep selection visible
+  vim.api.nvim_set_hl(0, "PmenuBorder", { link = "FloatBorder" })
+  vim.api.nvim_set_hl(0, "PmenuSbar", { link = "FloatBorder" })
+  vim.api.nvim_set_hl(0, "PmenuThumb", { link = "Visual" })
+  vim.api.nvim_set_hl(0, "DiagnosticVirtualTextError", { bg = "NONE" })
+  vim.api.nvim_set_hl(0, "DiagnosticVirtualTextWarn",  { bg = "NONE" })
+  vim.api.nvim_set_hl(0, "DiagnosticVirtualTextInfo",  { bg = "NONE" })
+  vim.api.nvim_set_hl(0, "DiagnosticVirtualTextHint",  { bg = "NONE" })
 
   -- Noice-specific groups (covers Noice hover/cmdline/popup styles)
   pcall(vim.api.nvim_set_hl, 0, "NoicePopup", { link = "NormalFloat" })
