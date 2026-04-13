@@ -13,4 +13,5 @@ vim.opt.pumblend = 0          -- no transparency on menu
 vim.opt.winblend = 0          -- no transparency on floats
 vim.opt.pumheight = 10        -- max items shown at once (optional)
 vim.opt.spell = false
+vim.opt.guicursor = "n-v-c:block-Cursor,i-ci-ve:ver25-iCursor,r-cr:hor20,o:hor50"
 vim.opt.spelllang = "en_us"

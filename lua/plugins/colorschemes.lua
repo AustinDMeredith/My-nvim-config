@@ -63,6 +63,10 @@ return {
             colorscheme = "material-palenight",
             before = [[ vim.g.material_style = "palenight" ]],
           },
+          {
+            name = "Rose Pine Dawn",
+            colorscheme = "rose-pine-dawn",
+          },
           { name = "Rose Pine Moon", colorscheme = "rose-pine-moon" },
           { name = "Nordfox", colorscheme = "nordfox" },
           { name = "Nightfox", colorscheme = "nightfox" },

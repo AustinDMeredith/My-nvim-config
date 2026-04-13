@@ -3,7 +3,10 @@ return {
   ft = "java",
   config = function()
     local config = {
-      cmd = { "jdtls" },
+      cmd = {
+        "jdtls",
+        "--jvm-arg=-javaagent:/home/austin/.m2/repository/org/projectlombok/lombok/1.18.42/lombok-1.18.42.jar",
+      },
       root_dir = vim.fs.dirname(
         vim.fs.find({ "pom.xml", "build.gradle", ".git" }, { upward = true })[1]
       ),

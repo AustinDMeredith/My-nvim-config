@@ -13,6 +13,14 @@ return {
     "rcarriga/nvim-notify",
     },
     config = function ()
+
+    local bg = vim.api.nvim_get_hl(0, { name = "Normal", link = false }).bg
+    local bg_hex = bg and string.format("#%06x", bg) or "#f0ebe0"
+
+    require("notify").setup({
+        background_colour = bg_hex,
+    })
+
     require("noice").setup({
         lsp = {
             -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
