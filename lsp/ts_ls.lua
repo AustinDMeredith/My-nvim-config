@@ -41,7 +41,10 @@
 --- It is recommended to use the same version of TypeScript in all packages, and therefore have it available in your workspace root. The location of the TypeScript binary will be determined automatically, but only once.
 ---
 
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
+local ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+local capabilities = ok
+  and cmp_nvim_lsp.default_capabilities()
+  or vim.lsp.protocol.make_client_capabilities()
 
 ---@type vim.lsp.Config
 return {

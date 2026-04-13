@@ -32,18 +32,19 @@ local function switch_source_header(bufnr, client)
   end, bufnr)
 end
 
-local capabilities = vim.tbl_deep_extend(
-  "force",
-  require("cmp_nvim_lsp").default_capabilities(),
-  {
-    textDocument = {
-      completion = {
-        editsNearCursor = true,
-      },
+local ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+local base_caps = ok
+  and cmp_nvim_lsp.default_capabilities()
+  or vim.lsp.protocol.make_client_capabilities()
+
+local capabilities = vim.tbl_deep_extend("force", base_caps, {
+  textDocument = {
+    completion = {
+      editsNearCursor = true,
     },
-    offsetEncoding = { 'utf-8', 'utf-16' },
-  }
-)
+  },
+  offsetEncoding = { 'utf-8', 'utf-16' },
+})
 
 local function symbol_info(bufnr, client)
   local method_name = 'textDocument/symbolInfo'
