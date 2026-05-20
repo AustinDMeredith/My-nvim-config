@@ -59,6 +59,13 @@ vim.keymap.set("n", "<leader>tm", function()
 end, { desc = "Toggle mouse" })
 
 
+------ NAVIGATION ------
+vim.keymap.set("n", "<C-k>", ":wincmd k<CR>")
+vim.keymap.set("n", "<C-j>", ":wincmd j<CR>")
+vim.keymap.set("n", "<C-h>", ":wincmd h<CR>")
+vim.keymap.set("n", "<C-l>", ":wincmd l<CR>")
+
+
 ------ SPELL CHECKER ------
 -- toggle spell checker
 vim.keymap.set("n", "<leader>ts", function()
