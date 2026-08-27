@@ -24,13 +24,8 @@ vim.api.nvim_create_autocmd("BufReadCmd", {
   end,
 })
 
-vim.lsp.enable({
-  "clangd",
-  --"jdtls",
-  "lua_ls",
-  "pyright",
-  "ts_ls"
-})
+-- Server install + enable is handled by mason-lspconfig (see plugins/mason.lua),
+-- which installs the binaries via mason and calls vim.lsp.enable() for them.
 
 vim.diagnostic.config({
     -- virtual_lines = true,
